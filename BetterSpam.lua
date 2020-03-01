@@ -1,4 +1,11 @@
+-- Thank you for using my script. If you like it recommend me. Special Thanks to superyu'#7167 who helped me with the auto updates.
 
+-- Hit me up on discord to request new features and maybe I add them.
+
+-- If you want to add your own Spams just add them in a new line below, but make sure you have a "," above.
+
+local author = "DaveLTC";
+local discord = "https://discord.gg/6FWJDDm";
 
 local Kill_BM_Spams = {
 	"so ez",
@@ -35,7 +42,7 @@ local Kill_BM_Group = gui.Groupbox(ref, "Kill Message", 15, 15, 297);
 local Kill_BM_Act = gui.Combobox( Kill_BM_Group, "lua_combobox", "Enable", "off", "automated", "on Key" );
 
 --Death BM Spam
-local Death_BM_Group = gui.Groupbox(ref, "Death Message", 300, 15, 297);
+local Death_BM_Group = gui.Groupbox(ref, "Death Message", 309, 15, 297);
 local Death_BM_Act = gui.Combobox( Death_BM_Group, "lua_combobox", "Enable", "off", "automated", "on Key" );
 
 
@@ -75,9 +82,7 @@ callbacks.Register( 'FireGameEvent', 'AWKS', CHAT_KillSay );
 
 
 
---- Auto updater by ShadyRetard/Shady#0001
-
---- Auto updater Variables
+--- Auto updater by ShadyRetard/Shady#0001 and 
 local SCRIPT_FILE_NAME = GetScriptName();
 local SCRIPT_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/BetterSpam.lua";
 local VERSION_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/version.txt"; --- in case of update i need to update this. (Note by superyu'#7167 "so i don't forget it.")#
