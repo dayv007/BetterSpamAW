@@ -1,4 +1,4 @@
--- Thank you for using my script. If you like it recommend me. Special Thanks to superyu'#7167 who helped me with the auto updates.
+-- Thank you for using my script. If you like it recommend me. Special Thanks to superyu'#7167 who helped me with the auto updates. Also some of the Spams are copied but I can't find the source.
 
 -- Hit me up on discord to request new features and maybe I add them.
 
@@ -21,7 +21,12 @@ local Kill_BM_Spams = {
 	"ff?",
 	"I can teach you if you want.",
 	"xD my cat killed you",
-	"better do you homework"
+	"better do you homework",
+	"Which controller are you using???",
+	"Did you ever think about suicide? It would make things quicker.",
+	"is that a decoy, or are you trying to shoot somebody?",
+	"If this guy was the shooter harambe would still be alive",
+	"CS:GO is too hard for you m8 maybe consider a game that requires less skill, like idk.... solitaire"
 };
 local Death_BM_Spams = {
 	"nice luck",
@@ -29,7 +34,23 @@ local Death_BM_Spams = {
 	"doesn't count my mom came in",
 	"ok now I start playing",
 	"I think you should be in bed already",
-	"welcome to the scoreboard"
+	"welcome to the scoreboard",
+	"Theres more silver here than in the cutlery drawer",
+	"I'm not trash talking, I'm talking to trash.",
+	"We may have loose the game, but at the end of the day we, unlike you, are not russians.",
+	"Dude you're so fat you run out of breath rushing B",
+	"Rest in spaghetti never forgetti",
+	"LISTEN HERE YOU LITTLE FUCKER, WHEN I WAS YOUR AGE, PLUTO WAS A PLANET!"
+};
+local General_BM_Spams = {
+	"I smell your drunk mom from here.",
+	"I'm the reason your dad's gay",
+	"If you were a CSGO match, your mother would have a 7day cooldown all the time, because she kept abandoning you.",
+	"If I were to commit suicide, I would jump from your ego to your elo.",
+	"You sound like your parents beat each other in front of you",
+	"My knife is well-worn, just like your mother",
+	"You're the human equivalent of a participation award.",
+	"Did you grow up near by Tschernobyl or why are you so toxic?"
 };
 
 
@@ -38,12 +59,40 @@ local Death_BM_Spams = {
 local ref = gui.Tab(gui.Reference("Misc"), "better_spam.settings", "Better Spam")
 
 --Kill BM Spam
-local Kill_BM_Group = gui.Groupbox(ref, "Kill Message", 15, 15, 297);
-local Kill_BM_Act = gui.Combobox( Kill_BM_Group, "lua_combobox", "Enable", "off", "automated", "on Key" );
+local Kill_BM_Group = gui.Groupbox(ref, "Kill Message", 15, 15, 294);
+local Kill_BM_Act = gui.Combobox( Kill_BM_Group, "lua_combobox", "Enable", "off", "standard", "custom" );
+local Kill_BM_Edit = gui.Editbox( Kill_BM_Group, "lua_editbox", "custom message:");
+local Kill_BM_STAN_NAME = gui.Checkbox( Kill_BM_Group,"lua_checkbox" , "activate @player name", false);
 
 --Death BM Spam
-local Death_BM_Group = gui.Groupbox(ref, "Death Message", 324, 15, 297);
-local Death_BM_Act = gui.Combobox( Death_BM_Group, "lua_combobox", "Enable", "off", "automated", "on Key" );
+local Death_BM_Group = gui.Groupbox(ref, "Death Message", 327, 15, 294);
+local Death_BM_Act = gui.Combobox( Death_BM_Group, "lua_combobox", "Enable", "off", "standard", "custom" );
+local Death_BM_Edit = gui.Editbox( Death_BM_Group, "lua_editbox", "custom message:");
+local Death_BM_STAN_NAME = gui.Checkbox( Death_BM_Group,"lua_checkbox" , "activate @player name", false);
+
+--General BM Spam
+local General_BM_Group = gui.Groupbox(ref, "Spam Message", 15, 230, 607);
+local General_BM_Act = gui.Combobox( General_BM_Group, "lua_combobox", "Enable", "off", "standard", "custom" );
+local General_BM_Edit = gui.Editbox( General_BM_Group, "lua_editbox", "custom message:");
+local General_BM_Speed = gui.Slider( General_BM_Group, "lua_slider","Delay in Seconds" , 10,1,60)
+
+--General Spam Timer
+local last_message = globals.TickCount();
+function GeneralSpam()
+	if ( globals.TickCount() - last_message < 0 ) then
+        last_message = 0;
+    end;
+	
+	local spammer_speed = General_BM_Speed:GetValue() *60;
+    if ( General_BM_Act:GetValue()==1 and globals.TickCount() - last_message > (math.max(22, spammer_speed)) ) then
+        client.ChatSay( ' ' .. tostring( General_BM_Spams[math.random(1,table.getn(General_BM_Spams))] ));
+        last_message = globals.TickCount();   
+	elseif ( General_BM_Act:GetValue()==2 and globals.TickCount() - last_message > (math.max(22, spammer_speed)) ) then
+        client.ChatSay(General_BM_Edit:GetValue());
+        last_message = globals.TickCount();
+    end
+end
+
 
 
 --Kill/Death Trigger
@@ -62,19 +111,44 @@ local function CHAT_KillSay( Event )
        local NAME_Attacker = client.GetPlayerNameByUserID( INT_ATTACKER );
        local INDEX_Attacker = client.GetPlayerIndexByUserID( INT_ATTACKER );
 
-       if ( INDEX_Attacker == ME and INDEX_Victim ~= ME and Kill_BM_Act:GetValue()==1) then
+       if ( INDEX_Attacker == ME and INDEX_Victim ~= ME) then
+			if (Kill_BM_Act:GetValue()==1) then
+				if(Kill_BM_STAN_NAME:GetValue()==true) then
+					client.ChatSay( ' ' .. tostring( Kill_BM_Spams[math.random(1,table.getn(Kill_BM_Spams))] ) .. ' @' .. NAME_Victim );
+				else
+					client.ChatSay( ' ' .. tostring( Kill_BM_Spams[math.random(1,table.getn(Kill_BM_Spams))] ));
+				end
+				
+			elseif (Kill_BM_Act:GetValue()==2) then 
+				if(Kill_BM_STAN_NAME:GetValue()==true) then
+					client.ChatSay(Kill_BM_Edit:GetValue() .. ' @' .. NAME_Victim );
+				else
+					client.ChatSay(Kill_BM_Edit:GetValue());
+				end
+			end
+        elseif ( INDEX_Victim == ME and INDEX_Attacker ~= ME and Death_BM_Act:GetValue()==1) then
+			if (Death_BM_Act:GetValue()==1) then
+				if(Death_BM_STAN_NAME:GetValue()==true) then
+					client.ChatSay( ' ' .. tostring( Death_BM_Spams[math.random(1,table.getn(Death_BM_Spams))] ) .. ' @' .. NAME_Victim );
+				else
+					client.ChatSay( ' ' .. tostring( Death_BM_Spams[math.random(1,table.getn(Death_BM_Spams))] ));
+				end
+				
+			elseif (Death_BM_Act:GetValue()==2) then 
+				if(Death_BM_STAN_NAME:GetValue()==true) then
+					client.ChatSay(Death_BM_Edit:GetValue() .. ' @' .. NAME_Victim );
+				else
+					client.ChatSay(Death_BM_Edit:GetValue());
+				end
+			end
 
-           client.ChatSay( ' ' .. tostring( Kill_BM_Spams[math.random(1,table.getn(Kill_BM_Spams))] ) .. ' @' .. NAME_Victim );
+		end
 
-       elseif ( INDEX_Victim == ME and INDEX_Attacker ~= ME and Death_BM_Act:GetValue()==1) then
-
-           client.ChatSay( ' ' .. tostring( Death_BM_Spams[math.random(1,table.getn(Death_BM_Spams))] ) .. ' ' .. NAME_Attacker );
-
-       end
-
-   end
+	end
 
 end
+
+callbacks.Register( "Draw", "GeneralSpam", GeneralSpam );
 
 client.AllowListener( 'player_death' );
 
@@ -85,14 +159,11 @@ callbacks.Register( 'FireGameEvent', 'AWKS', CHAT_KillSay );
 --- Auto updater by ShadyRetard/Shady#0001 and 
 local SCRIPT_FILE_NAME = GetScriptName();
 local SCRIPT_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/BetterSpam.lua";
-local VERSION_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/version.txt"; --- in case of update i need to update this. (Note by superyu'#7167 "so i don't forget it.")#
-local VERSION_NUMBER = "1.0"; --- This too
+local VERSION_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/version.txt"; 
+local VERSION_NUMBER = "2.0";
 local version_check_done = false;
 local update_downloaded = false;
 local update_available = false;
-
-
---- Auto Updater GUI Stuff
 local BETTERSPAM_UPDATER_TAB = gui.Tab(gui.Reference("Settings"), "betterspam.updater.tab", "BetterSpam Autoupdater")
 local BETTERSPAM_UPDATER_GROUP = gui.Groupbox(BETTERSPAM_UPDATER_TAB, "Auto Updater for BetterSpam | v" .. VERSION_NUMBER, 15, 15, 600, 600)
 local BETTERSPAM_UPDATER_TEXT = gui.Text(BETTERSPAM_UPDATER_GROUP, "")
