@@ -82,11 +82,11 @@ function GeneralSpam()
 	if ( globals.TickCount() - last_message < 0 ) then
         last_message = 0;
     end;
-	
+
 	local spammer_speed = General_BM_Speed:GetValue() *60;
     if ( General_BM_Act:GetValue()==1 and globals.TickCount() - last_message > (math.max(22, spammer_speed)) ) then
         client.ChatSay( ' ' .. tostring( General_BM_Spams[math.random(1,table.getn(General_BM_Spams))] ));
-        last_message = globals.TickCount();   
+        last_message = globals.TickCount();
 	elseif ( General_BM_Act:GetValue()==2 and globals.TickCount() - last_message > (math.max(22, spammer_speed)) ) then
         client.ChatSay(General_BM_Edit:GetValue());
         last_message = globals.TickCount();
@@ -118,8 +118,8 @@ local function CHAT_KillSay( Event )
 				else
 					client.ChatSay( ' ' .. tostring( Kill_BM_Spams[math.random(1,table.getn(Kill_BM_Spams))] ));
 				end
-				
-			elseif (Kill_BM_Act:GetValue()==2) then 
+
+			elseif (Kill_BM_Act:GetValue()==2) then
 				if(Kill_BM_STAN_NAME:GetValue()==true) then
 					client.ChatSay(Kill_BM_Edit:GetValue() .. ' @' .. NAME_Victim );
 				else
@@ -133,8 +133,8 @@ local function CHAT_KillSay( Event )
 				else
 					client.ChatSay( ' ' .. tostring( Death_BM_Spams[math.random(1,table.getn(Death_BM_Spams))] ));
 				end
-				
-			elseif (Death_BM_Act:GetValue()==2) then 
+
+			elseif (Death_BM_Act:GetValue()==2) then
 				if(Death_BM_STAN_NAME:GetValue()==true) then
 					client.ChatSay(Death_BM_Edit:GetValue() .. ' @' .. NAME_Victim );
 				else
@@ -156,10 +156,10 @@ callbacks.Register( 'FireGameEvent', 'AWKS', CHAT_KillSay );
 
 
 
---- Auto updater by ShadyRetard/Shady#0001 and 
+--- Auto updater by ShadyRetard/Shady#0001 and
 local SCRIPT_FILE_NAME = GetScriptName();
 local SCRIPT_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/BetterSpam.lua";
-local VERSION_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/version.txt"; 
+local VERSION_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/version.txt";
 local VERSION_NUMBER = "2.0";
 local version_check_done = false;
 local update_downloaded = false;
