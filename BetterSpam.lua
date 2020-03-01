@@ -42,7 +42,7 @@ local Kill_BM_Group = gui.Groupbox(ref, "Kill Message", 15, 15, 297);
 local Kill_BM_Act = gui.Combobox( Kill_BM_Group, "lua_combobox", "Enable", "off", "automated", "on Key" );
 
 --Death BM Spam
-local Death_BM_Group = gui.Groupbox(ref, "Death Message", 309, 15, 297);
+local Death_BM_Group = gui.Groupbox(ref, "Death Message", 324, 15, 297);
 local Death_BM_Act = gui.Combobox( Death_BM_Group, "lua_combobox", "Enable", "off", "automated", "on Key" );
 
 
