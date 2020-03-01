@@ -1,7 +1,7 @@
 
 
 local Kill_BM_Spams = {
-	"so ez",
+	"so easy",
 	"get clapped",
 	"did that hurt?",
 	"do you want me to blow on that?",
