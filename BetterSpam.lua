@@ -86,7 +86,7 @@ callbacks.Register( 'FireGameEvent', 'AWKS', CHAT_KillSay );
 local SCRIPT_FILE_NAME = GetScriptName();
 local SCRIPT_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/BetterSpam.lua";
 local VERSION_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/version.txt"; --- in case of update i need to update this. (Note by superyu'#7167 "so i don't forget it.")#
-local VERSION_NUMBER = "0.2"; --- This too
+local VERSION_NUMBER = "1.0"; --- This too
 local version_check_done = false;
 local update_downloaded = false;
 local update_available = false;
