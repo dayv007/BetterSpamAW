@@ -72,3 +72,51 @@ end
 client.AllowListener( 'player_death' );
 
 callbacks.Register( 'FireGameEvent', 'AWKS', CHAT_KillSay );
+
+
+
+--- Auto updater by ShadyRetard/Shady#0001
+
+--- Auto updater Variables
+local SCRIPT_FILE_NAME = GetScriptName();
+local SCRIPT_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/blob/master/BetterSpam.lua";
+local VERSION_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/blob/master/version.txt"; --- in case of update i need to update this. (Note by superyu'#7167 "so i don't forget it.")#
+local VERSION_NUMBER = "0.1"; --- This too
+local version_check_done = false;
+local update_downloaded = false;
+local update_available = false;
+
+
+--- Auto Updater GUI Stuff
+local BETTERSPAM_UPDATER_TAB = gui.Tab(gui.Reference("Settings"), "betterspam.updater.tab", "BetterSpam Autoupdater")
+local BETTERSPAM_UPDATER_GROUP = gui.Groupbox(BETTERSPAM_UPDATER_TAB, "Auto Updater for BetterSpam | v" .. VERSION_NUMBER, 15, 15, 600, 600)
+local BETTERSPAM_UPDATER_TEXT = gui.Text(BETTERSPAM_UPDATER_GROUP, "")
+
+
+local function handleUpdates()
+
+    if (update_available and not update_downloaded) then
+        BETTERSPAM_UPDATER_TEXT:SetText("Update is getting downloaded.")
+        local new_version_content = http.Get(SCRIPT_FILE_ADDR);
+        local old_script = file.Open(SCRIPT_FILE_NAME, "w");
+        old_script:Write(new_version_content);
+        old_script:Close();
+        update_available = false;
+        update_downloaded = true;
+    end
+
+    if (update_downloaded) then
+        BETTERSPAM_UPDATER_TEXT:SetText("Update available, please reload the script.")
+        return;
+    end
+
+    if (not version_check_done) then
+        version_check_done = true;
+        local version = http.Get(VERSION_FILE_ADDR);
+        if (version ~= VERSION_NUMBER) then
+            update_available = true;
+        end
+    end
+end
+
+callbacks.Register("Draw", handleUpdates)
