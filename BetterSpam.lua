@@ -160,12 +160,12 @@ callbacks.Register( 'FireGameEvent', 'AWKS', CHAT_KillSay );
 local SCRIPT_FILE_NAME = GetScriptName();
 local SCRIPT_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/BetterSpam.lua";
 local VERSION_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/version.txt";
-local VERSION_NUMBER = "2.0";
+local VERSION_NUMBER = "2.1";
 local version_check_done = false;
 local update_downloaded = false;
 local update_available = false;
-local BETTERSPAM_UPDATER_TAB = gui.Tab(gui.Reference("Settings"), "betterspam.updater.tab", "BetterSpam Autoupdater")
-local BETTERSPAM_UPDATER_GROUP = gui.Groupbox(BETTERSPAM_UPDATER_TAB, "Auto Updater for BetterSpam | v" .. VERSION_NUMBER, 15, 15, 600, 600)
+local BETTERSPAM_UPDATER_TAB = gui.Tab(gui.Reference("Settings"), "DaveLTC's.updater.tab", "DaveLTC's Autoupdater")
+local BETTERSPAM_UPDATER_GROUP = gui.Groupbox(BETTERSPAM_UPDATER_TAB, "Auto Updater for BetterSpam | v" .. VERSION_NUMBER, 15, 15)
 local BETTERSPAM_UPDATER_TEXT = gui.Text(BETTERSPAM_UPDATER_GROUP, "")
 
 
