@@ -156,7 +156,7 @@ callbacks.Register( 'FireGameEvent', 'AWKS', CHAT_KillSay );
 
 
 
---- Auto updater by ShadyRetard/Shady#0001 and
+--- Auto updater by ShadyRetard/Shady#0001
 local SCRIPT_FILE_NAME = GetScriptName();
 local SCRIPT_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/BetterSpam.lua";
 local VERSION_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/version.txt";
