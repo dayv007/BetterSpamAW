@@ -160,7 +160,7 @@ callbacks.Register( 'FireGameEvent', 'AWKS', CHAT_KillSay );
 local SCRIPT_FILE_NAME = GetScriptName();
 local SCRIPT_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/BetterSpam.lua";
 local VERSION_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/version.txt";
-local VERSION_NUMBER = "2.1";
+local VERSION_NUMBER = "2.1.1";
 local version_check_done = false;
 local update_downloaded = false;
 local update_available = false;
@@ -184,6 +184,8 @@ local function handleUpdates()
     if (update_downloaded) then
         BETTERSPAM_UPDATER_TEXT:SetText("Update available, please reload the script.")
         return;
+	else 
+		BETTERSPAM_UPDATER_TEXT:SetText("No update available. You use the newest version(v"..VERSION_NUMBER..")")
     end
 
     if (not version_check_done) then
