@@ -14,7 +14,6 @@ local Kill_BM_Spams = {
 	"do you want me to blow on that?",
 	"btw you are supposed to shoot me.",
 	"sry I didn't know you were retarded",
-	"join my discord: https://discord.gg/WhyUs0b4d",
 	"CSGO->Game->Game->TurnOnInstructorMessages that might help you",
 	"better luck next time",
 	"bro how did you hit the accept button with that aim???",
@@ -25,8 +24,32 @@ local Kill_BM_Spams = {
 	"Which controller are you using???",
 	"Did you ever think about suicide? It would make things quicker.",
 	"is that a decoy, or are you trying to shoot somebody?",
-	"If this guy was the shooter harambe would still be alive",
-	"CS:GO is too hard for you m8 maybe consider a game that requires less skill, like idk.... solitaire"
+	"If this guy was the shooter Harambe would still be alive",
+	"CS:GO is too hard for you m8 maybe consider a game that requires less skill, like idk.... solitaire",
+	"Your shots are like a bad girlfriend: No Head",
+	"I would call you AIDS but at least AIDS gets kills.",
+	"I could swallow bullets and shit out a better spray than that",
+	"Don't be a loser, buy a rope and hang yourself",
+	"This guy is more toxic than the beaches at Fukushima",
+	"deranking?",
+	"Road to Bronce?",
+	"Did you learn your spray downs in a bukkake video?",
+	"Oops, I must have chosen easy bots by accident",
+	"server cvar 'sv_rekt' changed to 1.",
+	"Did you notice warm up is already over? Please start playing seriously!!!",
+	"How do you change your difficulty settings? My CSGO is stuck on easy",
+	"I'd say your aim is cancer, but cancer kills.",
+	"I'd call you corona but nobody's afraid of you and corona gets kills.",
+	"Nice $4750 decoy",
+	"CRY HERE ---> |___| <--- Africans need water",
+	"Was that your spray on the wall or are you just happy to see me?",
+	"Internet Explorer is faster than your reactions",
+	"Safest place for us to stand is in front of your gun",
+	"Is your monitor on?",
+	"mad cuz bad",
+	"Choose your excuse: I suck, I'm bad, I can't play CSGO, WHY ARE YOU BULLYING ME",
+	"If you want to play against enemies of your skill level just go to the main menu and click 'Offline with Bots'",
+	"Did you know that csgo is free to uninstall?"
 };
 local Death_BM_Spams = {
 	"nice luck",
@@ -40,17 +63,53 @@ local Death_BM_Spams = {
 	"We may have loose the game, but at the end of the day we, unlike you, are not russians.",
 	"Dude you're so fat you run out of breath rushing B",
 	"Rest in spaghetti never forgetti",
-	"LISTEN HERE YOU LITTLE FUCKER, WHEN I WAS YOUR AGE, PLUTO WAS A PLANET!"
+	"LISTEN HERE YOU LITTLE FUCKER, WHEN I WAS YOUR AGE, PLUTO WAS A PLANET!",
+	"Which one of your 2 dads taught you how to play CS?",
+	"Go have a 3 sum with your sister and your cousin you fucking hill billy redneck",
+	"Watching you play is making my brain cells want commit suicide.",
+	"Are you one of those SpECi4L kids?",
+	"You're the reason the gene pool should have a life guard",
+	"Isn't it uncomfortable playing Counterstrike in the kitchen?",
+	"I'm surprised you've got the brain power to keep your heart beating",
+	"At least I don't live in the world's most corrupt country",
+	"With aim like that, I pity whoever has to clean the floor around your toilet.",
+	"I bet you're the type of dude that likes it when your toilet paper breaks and your finger slides up your asshole.",
+	"It's ok you play CSGO while I play Joe Mama.",
+	"You don't deserve to play this game. Go back to playing with crayons and shitting yourself",
+	"At least my country has indoor plumbing",
+	"You only killed me because I ran out of health...",
+	"Do you make eye-contact when you're fucking your dad in the ass?"
 };
 local General_BM_Spams = {
 	"I smell your drunk mom from here.",
 	"I'm the reason your dad's gay",
-	"If you were a CSGO match, your mother would have a 7day cooldown all the time, because she kept abandoning you.",
+	"If you were a CSGO match, your mother would have a 7day cool down all the time, because she kept abandoning you.",
 	"If I were to commit suicide, I would jump from your ego to your elo.",
 	"You sound like your parents beat each other in front of you",
 	"My knife is well-worn, just like your mother",
 	"You're the human equivalent of a participation award.",
-	"Did you grow up near by Tschernobyl or why are you so toxic?"
+	"Did you grow up near by Chernobyl or why are you so toxic?",
+	"I thought I put bots on hard, why are they on easy?",
+	"Your nans like my ak vulcan, battle-scarred",
+	"I have a coupon code for you = y0UStUP1d. It only works for dumb people so can you maybe try that one out for me?",
+	"You're almost as salty as the semen dripping from your mum's mouth",
+	"If you fuck your mom and sister it's still only a 2 sum. Are you from Alabama by any chance?",
+	"Maybe if you stopped taking loads in the mouth you wouldn't be so salty",
+	"The only thing you carry is an extra chromosome.",
+	"I kissed your mom last night. Her breath was globally offensive",
+	"You can't even carry groceries in from the car",
+	"You can feel the autism",
+	"Who are you sponsored by? Parkinson's?",
+	"You define autism",
+	"You dropped your weapon just like your mom dropped you on your head as a kid",
+	"Shut up kid and talk to me when your balls have reached the bottom of your spiderman underwear!",
+	"The time you need to react is equal to the WindowsXP boot time!",
+	"You Polish fuck, Hitler should had killed your family",
+	"Do you know the STOP BULLYING ME kid? That could be you.",
+	"Bro you couldn't hit an elephant in the ass with a shotgun with aim like that",
+	"Hey man, dont worry about being bad. It's called a trashCAN not a trashCAN'T.",
+	"If i wanted to listen to an asshole I would fart",
+	"Sell your computer and buy a Wii"
 };
 
 
@@ -160,11 +219,11 @@ callbacks.Register( 'FireGameEvent', 'AWKS', CHAT_KillSay );
 local SCRIPT_FILE_NAME = GetScriptName();
 local SCRIPT_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/BetterSpam.lua";
 local VERSION_FILE_ADDR = "https://raw.githubusercontent.com/dayv007/BetterSpamAW/master/version.txt";
-local VERSION_NUMBER = "2.1.1";
+local VERSION_NUMBER = "3.0";
 local version_check_done = false;
 local update_downloaded = false;
 local update_available = false;
-local BETTERSPAM_UPDATER_TAB = gui.Tab(gui.Reference("Settings"), "DaveLTC's.updater.tab", "BetterSpam Autoupdater")
+local BETTERSPAM_UPDATER_TAB = gui.Tab(gui.Reference("Settings"), "DaveLTC's.updater.tab", "DaveLTC's Autoupdater")
 local BETTERSPAM_UPDATER_GROUP = gui.Groupbox(BETTERSPAM_UPDATER_TAB, "Auto Updater for BetterSpam | v" .. VERSION_NUMBER)
 local BETTERSPAM_UPDATER_TEXT = gui.Text(BETTERSPAM_UPDATER_GROUP, "")
 
